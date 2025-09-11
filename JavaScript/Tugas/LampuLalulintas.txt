@@ -1,0 +1,2 @@
+Buatlah dalam 1/2 file (HTML/JS) untuk membuat aplikasi kecil mengenai Input menggunakan BOM (Browser Object Model) --> method prompt() dan Outputnya menggunakan DOM (Document Object Model) untuk membuat Lampu Lalulintas.
+Bila input data adalah Merah maka outputnya adalah kendaraan berhenti, jika input data adalah Kuning, maka outputnya adalah Kendaraan berhati-hati, selain iut input Hijau maka kendaraan berjalan
