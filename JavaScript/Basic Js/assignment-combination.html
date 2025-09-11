@@ -19,18 +19,19 @@
         tx += " sentence.";
         document.write(tx + "</p>");
 
+
         let z;
         z = 6;
-        document.write("<p>" + z + " ");
+        document.write("<p>" + z + " "); // z ditampilkan pertama kali (6)
 
         z++;
-        document.write(z + " ");
+        document.write(z + " "); // z++ ditampilkan dulu (nilai lama), lalu z naik 1
 
-        z--;
-        document.write(z + " ");
+        ++z;
+        document.write(z + " "); // ++z dihitung dulu, naik 1, baru ditampilkan
 
         z += 13;
-        document.write(z + " ");
+        document.write("<p>" + z + " ");
 
         z -= 5;
         document.write(z + " ");
@@ -47,10 +48,10 @@
         let a = 5, b = 5, c = 5, d;
 
         d = a++;
-        document.write("<p>" + d + " ");
+        document.write("<p>" + d + " "); // post-increment
 
         d = ++b;
-        document.write(d + " ");
+        document.write(d + " "); // pre-increment
 
         d = c++ + ++c + c++;
         document.write(d + "</p>");
