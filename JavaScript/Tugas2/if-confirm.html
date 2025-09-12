@@ -10,36 +10,38 @@
 <body>
 
     <script>
-        let nilai1 = prompt("Masukan Nama : ").toLowerCase();
-        let nilai2 = prompt("Masukan Jenis Kelamin : ").toLowerCase();
-        let nilai3 = prompt("Masukan Status : ").toLowerCase();
+        let nama = prompt("Masukan Nama : ").toLowerCase();
+        let jenisKelamin = prompt("Masukan Jenis Kelamin : ").toLowerCase();
+        let Status = prompt("Masukan Status : ").toLowerCase();
 
         let Keterangan;
 
-        if (nilai1 === "tono" && nilai2 === "pria" && nilai3 === "sendiri") {
+        if (nama === "tono" && jenisKelamin === "pria" && Status === "sendiri") {
             Keterangan = "Perjaka";
         }
-        else if (nilai1 === "agil" && nilai2 === "pria" && nilai3 === "kawin") {
+        else if (nama === "agil" && jenisKelamin === "pria" && Status === "kawin") {
             Keterangan = "Menikah";
         }
-        else if (nilai1 === "ahmad" && nilai2 === "pria" && nilai3 === "cerai") {
+        else if (nama === "ahmad" && jenisKelamin === "pria" && Status === "cerai") {
             Keterangan = "Duda";
         }
-        else if (nilai1 === "setyowati" && nilai2 === "wanita" && nilai3 === "sendiri") {
+        else if (nama === "setyowati" && jenisKelamin === "wanita" && Status === "sendiri") {
             Keterangan = "Perawan";
         }
-        else if (nilai1 === "neneng" && nilai2 === "wanita" && nilai3 === "kawin") {
+        else if (nama === "neneng" && jenisKelamin === "wanita" && Status === "kawin") {
             Keterangan = "Menikah";
         }
-        else if (nilai1 === "iis" && nilai2 === "wanita" && nilai3 === "cerai") {
+        else if (nama === "iis" && jenisKelamin === "wanita" && Status === "cerai") {
             Keterangan = "Janda";
         }
         else {
             Keterangan = "Data Tidak Ditemukan"
         }
-
-
-        document.write("<h3>Hasil: " + Keterangan + "</h3>");
+        
+        document.write("<h3>Nama : " + nama + "</h3>");
+        document.write("<h3>Jenis Kelamin : " + jenisKelamin + "</h3>");
+        document.write("<h3>Status : " + Status + "</h3>");
+        document.write("<h3>Keterangan : " + Keterangan + "</h3>");
     </script>
 </body>
 
