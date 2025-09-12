@@ -10,28 +10,28 @@
 <body>
 
     <script>
-        let nilai1 = prompt("Masukan Nama : ");
-        let nilai2 = prompt("Masukan Jenis Kelamin : ");
-        let nilai3 = prompt("Masukan Status : ");
+        let nilai1 = prompt("Masukan Nama : ").toLowerCase();
+        let nilai2 = prompt("Masukan Jenis Kelamin : ").toLowerCase();
+        let nilai3 = prompt("Masukan Status : ").toLowerCase();
 
         let Keterangan;
 
-        if (nilai1 === "Tono" && nilai2 === "Pria" && nilai3 === "Sendiri") {
+        if (nilai1 === "tono" && nilai2 === "pria" && nilai3 === "sendiri") {
             Keterangan = "Perjaka";
         }
-        else if (nilai1 === "Agil" && nilai2 === "Pria" && nilai3 === "Kawin") {
+        else if (nilai1 === "agil" && nilai2 === "pria" && nilai3 === "kawin") {
             Keterangan = "Menikah";
         }
-        else if (nilai1 === "Ahmad" && nilai2 === "Pria" && nilai3 === "Cerai") {
+        else if (nilai1 === "ahmad" && nilai2 === "pria" && nilai3 === "cerai") {
             Keterangan = "Duda";
         }
-        else if (nilai1 === "Setyowati" && nilai2 === "Wanita" && nilai3 === "Sendiri") {
+        else if (nilai1 === "setyowati" && nilai2 === "wanita" && nilai3 === "sendiri") {
             Keterangan = "Perawan";
         }
-        else if (nilai1 === "Neneng" && nilai2 === "Wanita" && nilai3 === "Kawin") {
+        else if (nilai1 === "neneng" && nilai2 === "wanita" && nilai3 === "kawin") {
             Keterangan = "Menikah";
         }
-        else if (nilai1 === "Iis" && nilai2 === "Wanita" && nilai3 === "Cerai") {
+        else if (nilai1 === "iis" && nilai2 === "wanita" && nilai3 === "cerai") {
             Keterangan = "Janda";
         }
         else {
