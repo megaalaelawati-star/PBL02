@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        let nilai1 = prompt("Masukan Nama : ");
+        let nilai2 = prompt("Masukan Jenis Klain : ");
+        let nilai3 = prompt("Masukan Status : ");
+
+        let Keterangan;
+
+        if (nilai1 === "Tono" && nilai2 === "Pria" && nilai3 === "Sendiri") {
+            Keterangan = "Perjaka";
+        }
+        else if (nilai1 === "Agil" && nilai2 === "Pria" && nilai3 === "Kawin") {
+            Keterangan = "Menikah";
+        }
+        else if (nilai1 === "Ahmad" && nilai2 === "Pria" && nilai3 === "Cerai") {
+            Keterangan = "Duda";
+        }
+        else if (nilai1 === "Setyowati" && nilai2 === "Wanita" && nilai3 === "Sendiri") {
+            Keterangan = "Perawan";
+        }
+        else if (nilai1 === "Neneng" && nilai2 === "Wanita" && nilai3 === "Kawin") {
+            Keterangan = "Menikah";
+        }
+        else if (nilai1 === "Iis" && nilai2 === "Wanita" && nilai3 === "Cerai") {
+            Keterangan = "Janda";
+        }
+        else {
+            Keterangan = "Data Tidak Ditemukan"
+        }
+
+
+        document.write("<h3>Hasil: " + Keterangan + "</h3>");
+    </script>
+</body>
+
+</html>

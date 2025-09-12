@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lampu Lalulintas - Mega Laelawati</title>
+</head>
+
+<body>
+    <script>
+
+        // NOTE : toLowerCase : mengubah menjadi huruf kecil semua
+        // NOTE : toUpperCase : mengubah menjadi huruf besar semua
+        // NOTE : === : menguji data dan tipe datanya 
+
+        // Kode Bapak :
+        //         let warna = prompt("Masukan warna lampu (Merah, Kuning, Hijau)").toLowerCase();
+        //         let pesan = "";
+
+        //         if (warna === "merah") {
+        //             pesan = "berhenti";
+        //         } else if (warna === "kuning") {
+        //             pesan = "berhati-hati"p;
+        //         } else if (warna === "hijau") {
+        //             pesan = "berjalan"
+        //         } else {
+        //             pesan = "menepi ke pinggir jalan.";
+        //         }
+
+        //         document.write("<h2>Anda sedang melihar lampu " + warna + ", sebaikan kendaraan Anda " + pesan + "</h2>");
+
+
+        let warna = prompt("Masukan Warna Lampu (Merah / Kuning / Hijau):", "Merah");
+
+        if (warna.toLowerCase() === "merah") {
+            document.write(" Kendaraan Berhenti");
+        } else if (warna.toLowerCase() === "kuning") {
+            document.write("Kendaraan Berhati-hati");
+        } else if (warna.toLowerCase() === "hijau") {
+            document.write("Kendaraan Berjalan");
+        } else {
+            document.write("Warna tidak dikenali!");
+        }
+    </script>
+</body>
+
+</html>
