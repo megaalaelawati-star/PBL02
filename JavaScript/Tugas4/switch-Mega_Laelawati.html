@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cek Data NIP</title>
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        h3 {
+            text-align: center;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        input {
+            width: 100%;
+            padding: 5px;
+            margin-top: 3px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+        }
+
+        button {
+            width: 100%;
+            padding: 8px;
+            background: grey;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        .peringatan {
+            color: red;
+            font-weight: bold;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        .hasil {
+            margin-top: 20px;
+            padding: 10px;
+            border: 1px solid gray;
+            background: white;
+            border-radius: 5px;
+        }
+
+        .hasil h4 {
+            margin-top: 0;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h3>Cek Data NIP</h3>
+
+    <!-- tempat pesan peringatan -->
+    <div id="peringatan" class="peringatan"></div>
+
+    <label for="nama">Nama:</label><br>
+    <input type="text" id="nama"><br><br>
+
+    <label for="nip">NIP (18 digit):</label><br>
+    <input type="text" id="nip"><br><br>
+
+    <button onclick="proses()">Proses</button>
+
+    <!-- tempat hasil -->
+    <div id="hasil" class="hasil"></div>
+
+    <script>
+        function proses() {
+            let nama = document.getElementById("nama").value.trim();
+            let nip = document.getElementById("nip").value.trim();
+            let peringatan = document.getElementById("peringatan");
+            let hasil = document.getElementById("hasil");
+
+            // reset pesan & hasil
+            peringatan.innerHTML = "";
+            hasil.innerHTML = "";
+
+            if (nip.length !== 18 || isNaN(nip)) {
+                peringatan.innerHTML = "NIP harus 18 digit angka!";
+                return;
+            }
+
+            // ambil bagian dari NIP
+            let tglLahir = nip.substring(0, 8);
+            let tglAsn = nip.substring(8, 14);
+            let jK = nip.substring(14, 15);
+            let noUrut = nip.substring(15, 18);
+
+            // parsing tanggal lahir
+            let tahun = parseInt(tglLahir.substring(0, 4));
+            let bulan = parseInt(tglLahir.substring(4, 6));
+            let hari = parseInt(tglLahir.substring(6, 8));
+            let tanggal = new Date(tahun, bulan - 1, hari);
+
+            // array nama hari & bulan
+            let namaHari = ["Minggu", "Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu"];
+            let namaBulan = ["Januari", "Februari", "Maret", "April", "Mei", "Juni",
+                "Juli", "Agustus", "September", "Oktober", "November", "Desember"];
+
+            // format tanggal lahir
+            let formatLahir = `${namaHari[tanggal.getDay()]}, ${hari} ${namaBulan[bulan - 1]} ${tahun}`;
+
+            // format tanggal ASN (bulan & tahun saja)
+            let tahunAsn = parseInt(tglAsn.substring(0, 4));
+            let bulanAsn = parseInt(tglAsn.substring(4, 6));
+            let formatAsn = `${namaBulan[bulanAsn - 1]} ${tahunAsn}`;
+
+            // jenis kelamin
+            let jenisKelamin = (jK === "1") ? "Pria" : "Wanita";
+
+            // tampilkan hasil
+            hasil.innerHTML = `
+                <h4>Hasil Data</h4>
+                <p><b>Nama:</b> ${nama}</p>
+                <p><b>Tanggal Lahir:</b> ${formatLahir}</p>
+                <p><b>Tanggal ASN:</b> ${formatAsn}</p>
+                <p><b>Jenis Kelamin:</b> ${jenisKelamin}</p>
+                <p><b>No. Urut:</b> ${noUrut}</p>
+            `;
+        }
+    </script>
+
+</body>
+
+</html>
