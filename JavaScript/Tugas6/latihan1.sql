@@ -1,44 +1,57 @@
--- Menghapus database jika sudah ada
-DROP DATABASE pbl2;
-
--- Membuat database baru
-CREATE DATABASE IF NOT EXISTS pbl2;
-
--- Menggunakan database yang baru dibuat
+DROP DATABASE IF EXISTS pbl2;
+CREATE DATABASE pbl2;
 USE pbl2;
 
--- Membuat tabel siswa
-CREATE TABLE IF NOT EXISTS siswa (
-    nis VARCHAR(5),
+CREATE TABLE siswa (
+    nis VARCHAR(10),
     nama VARCHAR(50),
     alamat VARCHAR(100),
-    kota VARCHAR(25)
+    kd_kota VARCHAR(1)
 );
 
--- Mengubah nama kolom 'nis' menjadi 'nisa'
+CREATE TABLE kota (
+    kode VARCHAR(1) PRIMARY KEY,
+    namakota VARCHAR(25)
+);
+
+INSERT INTO siswa VALUES
+('1234567890', 'Septiawan', 'Ciganitri', NULL),
+('1234567891', 'Irine', 'TKI', NULL),
+('1234567892', 'Dzakiy', 'Gubeng', NULL),
+('1234567893', 'Dzaka', 'Ciganitri', NULL),
+('1234567894', 'Nabila', 'Ciganitri', NULL);
+
+INSERT INTO kota VALUES
+('1', 'Bandung'),
+('2', 'Jakarta'),
+('3', 'Surabaya');
+
+UPDATE siswa SET kd_kota = '2' WHERE alamat = 'Gubeng';
+UPDATE siswa SET kd_kota = '1' WHERE alamat = 'Ciganitri';
+UPDATE siswa SET kd_kota = '3' WHERE alamat = 'TKI';
+
+ALTER TABLE siswa ADD PRIMARY KEY(nis);
+
 ALTER TABLE siswa
-RENAME COLUMN nis TO nisa;
+ADD FOREIGN KEY (kd_kota) REFERENCES kota(kode);
 
+CREATE OR REPLACE VIEW vw_jmlsiswa_kota AS
+SELECT kota.namakota, COUNT(siswa.nis) AS Jumlah_siswa
+FROM siswa
+JOIN kota ON siswa.kd_kota = kota.kode
+GROUP BY kota.namakota;
 
--- Menampilkan struktur tabel siswa
-DESCRIBE siswa;
+DELIMITER //
 
--- Mengubah nama kolom 'nisa' kembali menjadi 'nis' dan mengubah tipe datanya
-ALTER TABLE siswa
-CHANGE nisa nis VARCHAR(10);
+CREATE PROCEDURE sp_jmlsiswa_by_kota (
+    IN sp_nama VARCHAR(25)
+)
+BEGIN
+    SELECT * FROM vw_jmlsiswa_kota
+    WHERE namakota = sp_nama;
+END//
 
--- Menampilkan semua tabel yang ada di database
-SHOW TABLES;
+DELIMITER ;
 
--- Menampilkan struktur tabel siswa kembali
-DESCRIBE siswa;
-
-
-INSERT siswa VALUES ('1234567890', 'Septiawan', 'Cirendeu', 'Bandung');
-INSERT siswa VALUES 
-	('1234567891', 'Damayanti', 'Gubeng', 'Surabaya'),
-    ('1234567892', 'Dzakiy', 'Gubeng', 'Surabaya'),
-    ('1234567893', 'Dzaka', 'Ciganitri', 'Bandung'),
-    ('1234567894', 'Nabila', 'Ciganitri', 'Bandung');
-    
-    select * from siswa;
+CALL sp_jmlsiswa_by_kota('Bandung');
+CALL sp_jmlsiswa_by_kota7('Surabaya');
