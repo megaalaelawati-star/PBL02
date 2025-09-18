@@ -54,4 +54,9 @@ END//
 DELIMITER ;
 
 CALL sp_jmlsiswa_by_kota('Bandung');
-CALL sp_jmlsiswa_by_kota7('Surabaya');
+CALL sp_jmlsiswa_by_kota('Surabaya');
+CALL sp_jmlsiswa_by_kota('Jakarta');
+
+INSERT siswa VALUES ('7890123456', 'Anto', 'Ancol', '3');
+INSERT siswa VALUES ('8901234567', 'Nela', 'Lebak Bulus', '3');
+
