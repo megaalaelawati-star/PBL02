@@ -1,15 +1,15 @@
-##HAPUS DATABASE
+## HAPUS DATABASE
 DROP DATABASE IF EXISTS warung;
 CREATE DATABASE warung;
 USE warung;
 
-##TABEL KELAMIN
+## TABEL KELAMIN
 CREATE TABLE kelamin (
     id_kelamin INT AUTO_INCREMENT PRIMARY KEY,
     jenis_kelamin VARCHAR(20) NOT NULL
 );
 
-##TABEL KOTA
+## TABEL KOTA
 CREATE TABLE kota (
     id_kota INT AUTO_INCREMENT PRIMARY KEY,
     kode_kota CHAR(3) NOT NULL,
@@ -17,7 +17,7 @@ CREATE TABLE kota (
     UNIQUE KEY unique_kode_kota (kode_kota)
 );
 
-##TABEL SATUAN
+## TABEL SATUAN
 CREATE TABLE satuan (
     id_satuan INT AUTO_INCREMENT PRIMARY KEY,
     kode_satuan CHAR(3) NOT NULL,
@@ -26,7 +26,7 @@ CREATE TABLE satuan (
     UNIQUE KEY unique_nama_satuan (nama_satuan)
 );
 
-##TABEL PELANGGAN
+## TABEL PELANGGAN
 CREATE TABLE pelanggan (
     kode_pelanggan CHAR(5) PRIMARY KEY,
     nama VARCHAR(50) NOT NULL,
@@ -34,7 +34,7 @@ CREATE TABLE pelanggan (
     FOREIGN KEY (id_kelamin) REFERENCES kelamin(id_kelamin)
 );
 
-##TABEL ALAMAT PELANGGAN
+## TABEL ALAMAT PELANGGAN
 CREATE TABLE alamat_pelanggan (
     id_alamat INT AUTO_INCREMENT PRIMARY KEY,
     kode_pelanggan CHAR(5),
@@ -44,7 +44,7 @@ CREATE TABLE alamat_pelanggan (
     FOREIGN KEY (id_kota) REFERENCES kota(id_kota)
 );
 
-##TABEL PRODUK
+## TABEL PRODUK
 CREATE TABLE produk (
     kode_produk CHAR(5) PRIMARY KEY,
     nama VARCHAR(50) NOT NULL,
@@ -53,7 +53,7 @@ CREATE TABLE produk (
     FOREIGN KEY (id_satuan) REFERENCES satuan(id_satuan)
 );
 
-##TABEL HARGA PRODUK
+## TABEL HARGA PRODUK
 CREATE TABLE harga_produk (
     id_harga INT AUTO_INCREMENT PRIMARY KEY,
     kode_produk CHAR(5),
@@ -63,7 +63,7 @@ CREATE TABLE harga_produk (
     UNIQUE KEY unique_harga_produk (kode_produk, jenis_harga)
 );
 
-##TABEL TRANSAKSI
+## TABEL TRANSAKSI
 CREATE TABLE transaksi (
     no_jual CHAR(5) PRIMARY KEY,
     tgl_jual DATE NOT NULL,
@@ -71,7 +71,7 @@ CREATE TABLE transaksi (
     FOREIGN KEY (kode_pelanggan) REFERENCES pelanggan(kode_pelanggan)
 );
 
-##TABEL DETAIL TRANSAKSI
+## TABEL DETAIL TRANSAKSI
 CREATE TABLE detail_transaksi (
     no_jual CHAR(5),
     kode_produk CHAR(5),
@@ -81,22 +81,22 @@ CREATE TABLE detail_transaksi (
     FOREIGN KEY (kode_produk) REFERENCES produk(kode_produk)
 );
 
-##DATA KELAMIN
+## DATA KELAMIN
 INSERT INTO kelamin (jenis_kelamin) VALUES ('Pria'), ('Wanita');
 
-##DATA SATUAN
+## DATA SATUAN
 INSERT INTO satuan (kode_satuan, nama_satuan) VALUES 
 ('BKS', 'Bungkus'),
 ('PK', 'Pak'),
 ('BTL', 'Botol');
 
-##DATA KOTA
+## DATA KOTA
 INSERT INTO kota (kode_kota, nama_kota) VALUES 
 ('JKT', 'Jakarta'),
 ('BDG', 'Bandung'),
 ('SBY', 'Surabaya');
 
-##DATA PELANGGAN
+## DATA PELANGGAN
 INSERT INTO pelanggan (kode_pelanggan, nama, id_kelamin) VALUES
 ('PLG01', 'Mohamad', 1),
 ('PLG02', 'Naufal', 1),
@@ -106,7 +106,7 @@ INSERT INTO pelanggan (kode_pelanggan, nama, id_kelamin) VALUES
 ('PLG06', 'Tsaniy', 1),
 ('PLG07', 'Nabila', 2);
 
-##DATA ALAMAT PELANGGAN
+## DATA ALAMAT PELANGGAN
 INSERT INTO alamat_pelanggan (kode_pelanggan, alamat, id_kota) VALUES
 ('PLG01', 'Priok', 1),
 ('PLG02', 'Cilincing', 1),
@@ -116,7 +116,7 @@ INSERT INTO alamat_pelanggan (kode_pelanggan, alamat, id_kota) VALUES
 ('PLG06', 'Darmo', 3),
 ('PLG07', 'Lebak Bulus', 1);
 
-##DATA PRODUK
+## DATA PRODUK
 INSERT INTO produk (kode_produk, nama, id_satuan, stok) VALUES
 ('P001', 'Indomie', 1, 10),
 ('P002', 'Roti', 2, 3),
@@ -127,7 +127,7 @@ INSERT INTO produk (kode_produk, nama, id_satuan, stok) VALUES
 ('P007', 'Pasta Gigi', 2, 7),
 ('P008', 'Saos Sambal', 3, 5);
 
-##DATA HARGA PRODUK
+## DATA HARGA PRODUK
 INSERT INTO harga_produk (kode_produk, jenis_harga, harga) VALUES
 ('P001', 'ecer', 3000),
 ('P002', 'ecer', 18000),
@@ -138,14 +138,14 @@ INSERT INTO harga_produk (kode_produk, jenis_harga, harga) VALUES
 ('P007', 'ecer', 10000),
 ('P008', 'ecer', 7300);
 
-#DATA TRANSAKSI
+# DATA TRANSAKSI
 INSERT INTO transaksi (no_jual, tgl_jual, kode_pelanggan) VALUES
 ('J001', '2025-09-08', 'PLG03'),
 ('J002', '2025-09-08', 'PLG07'),
 ('J003', '2025-09-09', 'PLG02'),
 ('J004', '2025-09-10', 'PLG05');
 
-##DATA DETAIL TRANSAKSI
+## DATA DETAIL TRANSAKSI
 INSERT INTO detail_transaksi (no_jual, kode_produk, jumlah) VALUES
 ('J001', 'P001', 2),
 ('J001', 'P003', 1),
@@ -162,10 +162,12 @@ INSERT INTO detail_transaksi (no_jual, kode_produk, jumlah) VALUES
 ('J004', 'P006', 2),
 ('J004', 'P007', 1);
 
-##PROSEDUR DAN FUNGSI
+---
+## PROSEDUR DAN FUNGSI
+---
 
 DELIMITER $$
-##PROSEDUR TAMBAH DATA PELANGGAN
+## PROSEDUR TAMBAH DATA PELANGGAN
 DROP PROCEDURE IF EXISTS sp_insert_pelanggan $$
 CREATE PROCEDURE sp_insert_pelanggan(
     IN p_kode CHAR(5),
@@ -184,7 +186,7 @@ END $$
 DELIMITER ;
 
 DELIMITER $$
-##PROSEDUR UPDATE DATA PELANGGAN
+## PROSEDUR UPDATE DATA PELANGGAN
 DROP PROCEDURE IF EXISTS sp_update_pelanggan $$
 CREATE PROCEDURE sp_update_pelanggan(
     IN p_kode CHAR(5),
@@ -199,7 +201,7 @@ END $$
 DELIMITER ;
 
 DELIMITER $$
-##PROSEDUR HAPUS PELANGGAN
+## PROSEDUR HAPUS PELANGGAN
 DROP PROCEDURE IF EXISTS sp_delete_pelanggan $$
 CREATE PROCEDURE sp_delete_pelanggan(IN p_kode CHAR(5))
 BEGIN
@@ -210,7 +212,7 @@ END $$
 DELIMITER ;
 
 DELIMITER $$
-##PROSEDUR MENGAMBIL DATA PELANGGAN
+## PROSEDUR MENGAMBIL DATA PELANGGAN
 DROP PROCEDURE IF EXISTS sp_get_pelanggan $$
 CREATE PROCEDURE sp_get_pelanggan()
 BEGIN
@@ -228,7 +230,7 @@ END $$
 DELIMITER ;
 
 DELIMITER $$
-##PROSEDUR MENGAMBIL DATA PRODUK
+## PROSEDUR MENGAMBIL DATA PRODUK
 DROP PROCEDURE IF EXISTS sp_get_produk $$
 CREATE PROCEDURE sp_get_produk()
 BEGIN
@@ -246,7 +248,7 @@ END $$
 DELIMITER ;
 
 DELIMITER $$
-##PROSEDUR MENGAMBIL DATA PENJUALAN
+## PROSEDUR MENGAMBIL DATA PENJUALAN
 DROP PROCEDURE IF EXISTS sp_get_penjualan $$
 CREATE PROCEDURE sp_get_penjualan()
 BEGIN
@@ -270,7 +272,7 @@ END $$
 DELIMITER ;
 
 DELIMITER $$
-##PROSEDUR MENCARI PENJUALAN BERDASARKAN NAMA PELANGGAN
+## PROSEDUR MENCARI PENJUALAN BERDASARKAN NAMA PELANGGAN
 DROP PROCEDURE IF EXISTS sp_cari_penjualan $$
 CREATE PROCEDURE sp_cari_penjualan(IN keyword VARCHAR(50))
 BEGIN
@@ -294,9 +296,8 @@ BEGIN
 END $$
 DELIMITER ;
 
----
 DELIMITER $$
-##PROSEDUR MENDAPATKAN PELANGGAN BERDASARKAN SATUAN PRODUK
+## PROSEDUR MENDAPATKAN PELANGGAN BERDASARKAN SATUAN PRODUK
 DROP PROCEDURE IF EXISTS sp_get_pelanggan_by_satuan$$
 CREATE PROCEDURE sp_get_pelanggan_by_satuan(IN p_kode_satuan CHAR(3))
 BEGIN
@@ -321,9 +322,8 @@ BEGIN
 END $$
 DELIMITER ;
 
----
 DELIMITER $$
-##FUNGSI MENGHITUNG SUB-TOTAL UNTUK SATU ITEM
+## FUNGSI MENGHITUNG SUB-TOTAL UNTUK SATU ITEM
 DROP FUNCTION IF EXISTS fn_sub_total_item$$
 CREATE FUNCTION fn_sub_total_item(p_kode_produk CHAR(5), p_jumlah INT)
 RETURNS INT
@@ -335,43 +335,8 @@ BEGIN
 END $$
 DELIMITER ;
 
----
-DELIMITER $$
-##PROSEDUR MENGAMBIL DATA PENJUALAN KESELURUHAN
-DROP PROCEDURE IF EXISTS sp_get_penjualan_lengkap $$
-CREATE PROCEDURE sp_get_penjualan_lengkap()
-BEGIN
-    SELECT 
-        p.nama AS nama_pelanggan,
-        k.jenis_kelamin,
-        ap.alamat,
-        kt.nama_kota AS kota,
-        DATE_FORMAT(t.tgl_jual, '%d/%m/%Y') AS tanggal_jual,
-        t.no_jual,
-        pr.nama AS nama_produk,
-        d.jumlah,
-        s.nama_satuan AS satuan,
-        h.harga,
-        (d.jumlah * h.harga) AS total
-    FROM transaksi t
-    JOIN pelanggan p ON t.kode_pelanggan = p.kode_pelanggan
-    JOIN kelamin k ON p.id_kelamin = k.id_kelamin
-    JOIN alamat_pelanggan ap ON p.kode_pelanggan = ap.kode_pelanggan
-    JOIN kota kt ON ap.id_kota = kt.id_kota
-    JOIN detail_transaksi d ON t.no_jual = d.no_jual
-    JOIN produk pr ON d.kode_produk = pr.kode_produk
-    JOIN satuan s ON pr.id_satuan = s.id_satuan
-    JOIN harga_produk h ON pr.kode_produk = h.kode_produk
-    ORDER BY t.tgl_jual, t.no_jual;
-END $$
-DELIMITER ;
-
-DELIMITER $$
-
-##PROSEDUR MENGAMBIL DATA PENJUALAN KESELURUHAN
-DROP PROCEDURE IF EXISTS sp_get_penjualan_lengkap $$
-CREATE PROCEDURE sp_get_penjualan_lengkap()
-BEGIN
+## VIEW UNTUK DATA PENJUALAN LENGKAP
+CREATE OR REPLACE VIEW vw_penjualan_lengkap AS
     SELECT 
         p.kode_pelanggan,
         p.nama AS nama_pelanggan,
@@ -380,8 +345,8 @@ BEGIN
         kt.nama_kota AS kota,
         DATE_FORMAT(t.tgl_jual, '%d/%m/%Y') AS tanggal_jual,
         t.no_jual,
+        pr.kode_produk,
         pr.nama AS nama_produk,
-        pr.kode_produk AS kode_produk,
         d.jumlah,
         s.nama_satuan AS satuan,
         h.harga,
@@ -394,13 +359,42 @@ BEGIN
     JOIN detail_transaksi d ON t.no_jual = d.no_jual
     JOIN produk pr ON d.kode_produk = pr.kode_produk
     JOIN satuan s ON pr.id_satuan = s.id_satuan
-    JOIN harga_produk h ON pr.kode_produk = h.kode_produk
-    ORDER BY t.tgl_jual, t.no_jual;
-END $$
-DELIMITER ;
+    JOIN harga_produk h ON pr.kode_produk = h.kode_produk;
+
+## VIEW UNTUK DATA PELANGGAN LENGKAP
+CREATE OR REPLACE VIEW vw_pelanggan_lengkap AS
+SELECT
+    p.kode_pelanggan,
+    p.nama AS nama_pelanggan,
+    k.jenis_kelamin,
+    ap.alamat,
+    kt.nama_kota AS kota
+FROM
+    pelanggan p
+JOIN
+    kelamin k ON p.id_kelamin = k.id_kelamin
+JOIN
+    alamat_pelanggan ap ON p.kode_pelanggan = ap.kode_pelanggan
+JOIN
+    kota kt ON ap.id_kota = kt.id_kota;
+
+## VIEW UNTUK DATA PRODUK LENGKAP
+CREATE OR REPLACE VIEW vw_produk_lengkap AS
+SELECT
+    p.kode_produk,
+    p.nama AS nama_produk,
+    s.nama_satuan AS satuan,
+    p.stok,
+    hp.harga
+FROM
+    produk p
+JOIN
+    satuan s ON p.id_satuan = s.id_satuan
+JOIN
+    harga_produk hp ON p.kode_produk = hp.kode_produk;
 
 DELIMITER $$
-##FUNGSI MENGHITUNG TOTAL PENJUALAN
+## FUNGSI MENGHITUNG TOTAL PENJUALAN
 DROP FUNCTION IF EXISTS fn_total_penjualan$$
 CREATE FUNCTION fn_total_penjualan(noJual CHAR(5))
 RETURNS INT
@@ -415,7 +409,26 @@ BEGIN
 END $$
 DELIMITER ;
 
-CALL sp_get_pelanggan();
-CALL sp_get_produk();
-CALL sp_get_penjualan();
-CALL sp_get_penjualan_lengkap();
+DELIMITER $$
+## PROSEDUR MENGHITUNG TOTAL PENJUALAN PER HARI
+DROP PROCEDURE IF EXISTS sp_get_total_penjualan_harian$$
+CREATE PROCEDURE sp_get_total_penjualan_harian()
+BEGIN
+    SELECT
+        DATE_FORMAT(t.tgl_jual, '%d/%m/%Y') AS tanggal,
+        SUM(fn_sub_total_item(d.kode_produk, d.jumlah)) AS total_penjualan
+    FROM
+        transaksi t
+    JOIN
+        detail_transaksi d ON t.no_jual = d.no_jual
+    GROUP BY
+        t.tgl_jual
+    ORDER BY
+        t.tgl_jual;
+END $$
+DELIMITER ;
+
+SELECT * FROM vw_pelanggan_lengkap;
+SELECT * FROM vw_produk_lengkap;
+SELECT * FROM vw_penjualan_lengkap;
+CALL sp_get_total_penjualan_harian();
