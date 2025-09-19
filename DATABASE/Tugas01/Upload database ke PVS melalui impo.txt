@@ -1,0 +1,739 @@
+Upload database ke PVS melalui import cmd
+
+
+raban@WDC MINGW64 /d/Mega Laelawati/TUGAS/PBL02/DATABASE/Tugas01 (main)
+$ cd "/d/Mega Laelawati/TUGAS/PBL02/DATABASE/Tugas01 (main)"
+bash: cd: /d/Mega Laelawati/TUGAS/PBL02/DATABASE/Tugas01 (main): No such file or directory
+
+raban@WDC MINGW64 /d/Mega Laelawati/TUGAS/PBL02/DATABASE/Tugas01 (main)
+$ cd "/d/Mega Laelawati/TUGAS/PBL02/DATABASE/Tugas01.sql (main)"
+bash: cd: /d/Mega Laelawati/TUGAS/PBL02/DATABASE/Tugas01.sql (main): No such file or directory
+
+raban@WDC MINGW64 /d/Mega Laelawati/TUGAS/PBL02/DATABASE/Tugas01 (main)
+$ scp Tugas01.sql root@31.97.109.209:/root/
+root@31.97.109.209's password:
+Permission denied, please try again.
+root@31.97.109.209's password:
+Tugas01.sql                                                                                         100%   12KB 137.5KB/s   00:00
+
+raban@WDC MINGW64 /d/Mega Laelawati/TUGAS/PBL02/DATABASE/Tugas01 (main)
+$ cd /root
+bash: cd: /root: No such file or directory
+
+raban@WDC MINGW64 /d/Mega Laelawati/TUGAS/PBL02/DATABASE/Tugas01 (main)
+$ mysql -u root -p
+bash: mysql: command not found
+
+raban@WDC MINGW64 /d/Mega Laelawati/TUGAS/PBL02/DATABASE/Tugas01 (main)
+$ mysql -u root -p -h 31.97.109.209 Tugas01 < Tugas01.sql
+bash: mysql: command not found
+
+raban@WDC MINGW64 /d/Mega Laelawati/TUGAS/PBL02/DATABASE/Tugas01 (main)
+$ ssh root@31.97.109.209
+root@31.97.109.209's password:
+Permission denied, please try again.
+root@31.97.109.209's password:
+Welcome to Ubuntu 24.04.3 LTS (GNU/Linux 6.8.0-79-generic x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/pro
+
+ System information as of Fri Sep 19 01:49:50 UTC 2025
+
+  System load:  0.0               Processes:             104
+  Usage of /:   6.9% of 47.39GB   Users logged in:       0
+  Memory usage: 11%               IPv4 address for eth0: 31.97.109.209
+  Swap usage:   0%                IPv6 address for eth0: 2a02:4780:59:d48a::1
+
+
+Expanded Security Maintenance for Applications is not enabled.
+
+22 updates can be applied immediately.
+12 of these updates are standard security updates.
+To see these additional updates run: apt list --upgradable
+
+Enable ESM Apps to receive additional future security updates.
+See https://ubuntu.com/esm or run: sudo pro status
+
+
+1 updates could not be installed automatically. For more details,
+see /var/log/unattended-upgrades/unattended-upgrades.log
+
+Last login: Fri Sep 19 01:27:29 2025 from 103.154.118.90
+root@srv1011939:~# mysql -u root -p -e "CREATE DATABASE IF NOT EXISTS Tugas01;"
+Command 'mysql' not found, but can be installed with:
+apt install mysql-client-core-8.0  # version 8.0.43-0ubuntu0.24.04.2, or
+apt install mariadb-client-core    # version 1:10.11.13-0ubuntu0.24.04.1
+root@srv1011939:~# mysql -u root -p Tugas01 < /root/Tugas01.sql
+Command 'mysql' not found, but can be installed with:
+apt install mysql-client-core-8.0  # version 8.0.43-0ubuntu0.24.04.2, or
+apt install mariadb-client-core    # version 1:10.11.13-0ubuntu0.24.04.1
+root@srv1011939:~#
+root@srv1011939:~# apt update
+Get:1 http://mirror.repository.id/ubuntu noble-backports InRelease [126 kB]
+Get:2 https://deb.nodesource.com/node_20.x nodistro InRelease [12.1 kB]
+Get:3 https://deb.nodesource.com/node_20.x nodistro/main amd64 Packages [12.8 kB]
+Hit:4 http://mirror.repository.id/ubuntu noble InRelease
+Get:5 http://mirror.repository.id/ubuntu noble-security InRelease [126 kB]
+Get:6 http://mirror.repository.id/ubuntu noble-updates InRelease [126 kB]
+Hit:7 http://archive.ubuntu.com/ubuntu noble InRelease
+Get:8 http://mirror.repository.id/ubuntu noble-backports/main amd64 Components [7052 B]
+Hit:9 https://repository.monarx.com/repository/ubuntu-noble noble InRelease
+Get:10 http://mirror.repository.id/ubuntu noble-backports/restricted amd64 Components [216 B]
+Get:11 http://mirror.repository.id/ubuntu noble-backports/universe amd64 Components [19.2 kB]
+Get:12 http://mirror.repository.id/ubuntu noble-backports/multiverse amd64 Components [212 B]
+Get:13 http://archive.ubuntu.com/ubuntu noble-updates InRelease [126 kB]
+Get:14 http://mirror.repository.id/ubuntu noble-security/main amd64 Packages [1143 kB]
+Get:15 http://mirror.repository.id/ubuntu noble-security/main Translation-en [195 kB]
+Get:16 http://mirror.repository.id/ubuntu noble-security/main amd64 Components [21.6 kB]
+Get:17 http://mirror.repository.id/ubuntu noble-security/restricted amd64 Packages [1815 kB]
+Get:18 http://mirror.repository.id/ubuntu noble-security/restricted Translation-en [408 kB]
+Get:19 http://mirror.repository.id/ubuntu noble-security/restricted amd64 Components [208 B]
+Get:20 http://mirror.repository.id/ubuntu noble-security/restricted amd64 c-n-f Metadata [496 B]
+Get:21 http://mirror.repository.id/ubuntu noble-security/universe amd64 Components [52.3 kB]
+Get:22 http://mirror.repository.id/ubuntu noble-security/multiverse amd64 Packages [28.0 kB]
+Get:23 http://mirror.repository.id/ubuntu noble-security/multiverse Translation-en [5228 B]
+Get:24 http://mirror.repository.id/ubuntu noble-security/multiverse amd64 Components [212 B]
+Get:25 http://mirror.repository.id/ubuntu noble-security/multiverse amd64 c-n-f Metadata [452 B]
+Get:26 http://mirror.repository.id/ubuntu noble-updates/main amd64 Packages [1415 kB]
+Get:27 http://mirror.repository.id/ubuntu noble-updates/main amd64 Components [175 kB]
+Get:28 http://mirror.repository.id/ubuntu noble-updates/main amd64 c-n-f Metadata [15.2 kB]
+Get:29 http://mirror.repository.id/ubuntu noble-updates/restricted amd64 Components [212 B]
+Get:30 http://mirror.repository.id/ubuntu noble-updates/restricted amd64 c-n-f Metadata [544 B]
+Get:31 http://mirror.repository.id/ubuntu noble-updates/universe amd64 Packages [1484 kB]
+Get:32 http://archive.ubuntu.com/ubuntu noble-backports InRelease [126 kB]
+Get:33 http://mirror.repository.id/ubuntu noble-updates/universe Translation-en [299 kB]
+Get:34 http://archive.ubuntu.com/ubuntu noble-security InRelease [126 kB]
+Get:35 http://mirror.repository.id/ubuntu noble-updates/universe amd64 Components [377 kB]
+Get:36 http://mirror.repository.id/ubuntu noble-updates/universe amd64 c-n-f Metadata [31.1 kB]
+Get:37 http://mirror.repository.id/ubuntu noble-updates/multiverse amd64 Components [940 B]
+Get:38 http://mirror.repository.id/ubuntu noble-updates/multiverse amd64 c-n-f Metadata [488 B]
+Get:39 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 Packages [1415 kB]
+Get:40 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 Components [175 kB]
+Get:41 http://archive.ubuntu.com/ubuntu noble-updates/universe amd64 Packages [1484 kB]
+Get:42 http://archive.ubuntu.com/ubuntu noble-updates/universe Translation-en [299 kB]
+Get:43 http://archive.ubuntu.com/ubuntu noble-updates/universe amd64 Components [377 kB]
+Get:44 http://archive.ubuntu.com/ubuntu noble-updates/restricted amd64 Components [212 B]
+Get:45 http://archive.ubuntu.com/ubuntu noble-updates/multiverse amd64 Components [940 B]
+Get:46 http://archive.ubuntu.com/ubuntu noble-backports/main amd64 Components [7076 B]
+Get:47 http://archive.ubuntu.com/ubuntu noble-backports/universe amd64 Components [19.2 kB]
+Get:48 http://archive.ubuntu.com/ubuntu noble-backports/restricted amd64 Components [216 B]
+Get:49 http://archive.ubuntu.com/ubuntu noble-backports/multiverse amd64 Components [212 B]
+Get:50 http://archive.ubuntu.com/ubuntu noble-security/main amd64 Packages [1143 kB]
+Get:51 http://archive.ubuntu.com/ubuntu noble-security/main amd64 Components [21.6 kB]
+Get:52 http://archive.ubuntu.com/ubuntu noble-security/main amd64 c-n-f Metadata [8744 B]
+Get:53 http://archive.ubuntu.com/ubuntu noble-security/universe amd64 Packages [880 kB]
+Get:54 http://archive.ubuntu.com/ubuntu noble-security/universe Translation-en [195 kB]
+Get:55 http://archive.ubuntu.com/ubuntu noble-security/universe amd64 Components [52.3 kB]
+Get:56 http://archive.ubuntu.com/ubuntu noble-security/restricted amd64 Components [212 B]
+Get:57 http://archive.ubuntu.com/ubuntu noble-security/restricted amd64 c-n-f Metadata [520 B]
+Get:58 http://archive.ubuntu.com/ubuntu noble-security/multiverse amd64 Components [212 B]
+Get:59 http://archive.ubuntu.com/ubuntu noble-security/multiverse amd64 c-n-f Metadata [384 B]
+Fetched 14.4 MB in 3s (4420 kB/s)
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+20 packages can be upgraded. Run 'apt list --upgradable' to see them.
+root@srv1011939:~# mysql_secure_installation
+Command 'mysql_secure_installation' not found, but can be installed with:
+apt install mysql-server-core-8.0  # version 8.0.43-0ubuntu0.24.04.2, or
+apt install mariadb-server         # version 1:10.11.13-0ubuntu0.24.04.1
+root@srv1011939:~# mysql -u root -p -e "CREATE DATABASE Tugas01;"
+Command 'mysql' not found, but can be installed with:
+apt install mysql-client-core-8.0  # version 8.0.43-0ubuntu0.24.04.2, or
+apt install mariadb-client-core    # version 1:10.11.13-0ubuntu0.24.04.1
+root@srv1011939:~# apt update
+Hit:1 https://deb.nodesource.com/node_20.x nodistro InRelease
+Hit:2 http://mirror.repository.id/ubuntu noble-backports InRelease
+Hit:3 http://mirror.repository.id/ubuntu noble InRelease
+Hit:4 http://mirror.repository.id/ubuntu noble-security InRelease
+Hit:5 http://mirror.repository.id/ubuntu noble-updates InRelease
+Hit:6 http://archive.ubuntu.com/ubuntu noble InRelease
+Hit:7 http://archive.ubuntu.com/ubuntu noble-updates InRelease
+Hit:8 http://archive.ubuntu.com/ubuntu noble-backports InRelease
+Hit:9 http://archive.ubuntu.com/ubuntu noble-security InRelease
+Hit:10 https://repository.monarx.com/repository/ubuntu-noble noble InRelease
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+20 packages can be upgraded. Run 'apt list --upgradable' to see them.
+root@srv1011939:~# apt install mysql-server -y
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+The following additional packages will be installed:
+  libcgi-fast-perl libcgi-pm-perl libclone-perl libencode-locale-perl libevent-pthreads-2.1-7t64 libfcgi-bin libfcgi-perl
+  libfcgi0t64 libhtml-parser-perl libhtml-tagset-perl libhtml-template-perl libhttp-date-perl libhttp-message-perl libio-html-perl
+  liblwp-mediatypes-perl libmecab2 libprotobuf-lite32t64 libtimedate-perl liburi-perl mecab-ipadic mecab-ipadic-utf8 mecab-utils
+  mysql-client-8.0 mysql-client-core-8.0 mysql-common mysql-server-8.0 mysql-server-core-8.0
+Suggested packages:
+  libdata-dump-perl libipc-sharedcache-perl libio-compress-brotli-perl libbusiness-isbn-perl libregexp-ipv6-perl libwww-perl mailx
+  tinyca
+The following NEW packages will be installed:
+  libcgi-fast-perl libcgi-pm-perl libclone-perl libencode-locale-perl libevent-pthreads-2.1-7t64 libfcgi-bin libfcgi-perl
+  libfcgi0t64 libhtml-parser-perl libhtml-tagset-perl libhtml-template-perl libhttp-date-perl libhttp-message-perl libio-html-perl
+  liblwp-mediatypes-perl libmecab2 libprotobuf-lite32t64 libtimedate-perl liburi-perl mecab-ipadic mecab-ipadic-utf8 mecab-utils
+  mysql-client-8.0 mysql-client-core-8.0 mysql-common mysql-server mysql-server-8.0 mysql-server-core-8.0
+0 upgraded, 28 newly installed, 0 to remove and 20 not upgraded.
+Need to get 29.6 MB of archives.
+After this operation, 243 MB of additional disk space will be used.
+Get:1 http://mirror.repository.id/ubuntu noble/main amd64 mysql-common all 5.8+1.1.0build1 [6746 B]
+Get:2 http://mirror.repository.id/ubuntu noble-updates/main amd64 mysql-client-core-8.0 amd64 8.0.43-0ubuntu0.24.04.2 [2740 kB]
+Get:3 http://mirror.repository.id/ubuntu noble-updates/main amd64 mysql-client-8.0 amd64 8.0.43-0ubuntu0.24.04.2 [22.4 kB]
+Get:4 http://mirror.repository.id/ubuntu noble/main amd64 libevent-pthreads-2.1-7t64 amd64 2.1.12-stable-9ubuntu2 [7982 B]
+Get:5 http://mirror.repository.id/ubuntu noble/main amd64 libmecab2 amd64 0.996-14ubuntu4 [201 kB]
+Get:6 http://mirror.repository.id/ubuntu noble-security/main amd64 libprotobuf-lite32t64 amd64 3.21.12-8.2ubuntu0.2 [238 kB]
+Get:7 http://mirror.repository.id/ubuntu noble-updates/main amd64 mysql-server-core-8.0 amd64 8.0.43-0ubuntu0.24.04.2 [17.5 MB]
+Get:8 http://mirror.repository.id/ubuntu noble-updates/main amd64 mysql-server-8.0 amd64 8.0.43-0ubuntu0.24.04.2 [1439 kB]
+Get:9 http://mirror.repository.id/ubuntu noble/main amd64 libhtml-tagset-perl all 3.20-6 [11.3 kB]
+Get:10 http://mirror.repository.id/ubuntu noble/main amd64 liburi-perl all 5.27-1 [88.0 kB]
+Get:11 http://mirror.repository.id/ubuntu noble/main amd64 libhtml-parser-perl amd64 3.81-1build3 [85.8 kB]
+Get:12 http://mirror.repository.id/ubuntu noble/main amd64 libcgi-pm-perl all 4.63-1 [185 kB]
+Get:13 http://mirror.repository.id/ubuntu noble-security/main amd64 libfcgi0t64 amd64 2.4.2-2.1ubuntu0.24.04.1 [27.0 kB]
+Get:14 http://mirror.repository.id/ubuntu noble/main amd64 libfcgi-perl amd64 0.82+ds-3build2 [21.7 kB]
+Get:15 http://mirror.repository.id/ubuntu noble/main amd64 libcgi-fast-perl all 1:2.17-1 [10.3 kB]
+Get:16 http://mirror.repository.id/ubuntu noble/main amd64 libclone-perl amd64 0.46-1build3 [10.7 kB]
+Get:17 http://mirror.repository.id/ubuntu noble/main amd64 libencode-locale-perl all 1.05-3 [11.6 kB]
+Get:18 http://mirror.repository.id/ubuntu noble-security/main amd64 libfcgi-bin amd64 2.4.2-2.1ubuntu0.24.04.1 [11.2 kB]
+Get:19 http://mirror.repository.id/ubuntu noble/main amd64 libhtml-template-perl all 2.97-2 [60.2 kB]
+Get:20 http://mirror.repository.id/ubuntu noble/main amd64 libtimedate-perl all 2.3300-2 [34.0 kB]
+Get:21 http://mirror.repository.id/ubuntu noble/main amd64 libhttp-date-perl all 6.06-1 [10.2 kB]
+Get:22 http://mirror.repository.id/ubuntu noble/main amd64 libio-html-perl all 1.004-3 [15.9 kB]
+Get:23 http://mirror.repository.id/ubuntu noble/main amd64 liblwp-mediatypes-perl all 6.04-2 [20.1 kB]
+Get:24 http://mirror.repository.id/ubuntu noble/main amd64 libhttp-message-perl all 6.45-1ubuntu1 [78.2 kB]
+Get:25 http://mirror.repository.id/ubuntu noble/main amd64 mecab-utils amd64 0.996-14ubuntu4 [4804 B]
+Get:26 http://mirror.repository.id/ubuntu noble/main amd64 mecab-ipadic all 2.7.0-20070801+main-3 [6718 kB]
+Get:27 http://mirror.repository.id/ubuntu noble/main amd64 mecab-ipadic-utf8 all 2.7.0-20070801+main-3 [4384 B]
+Get:28 http://mirror.repository.id/ubuntu noble-updates/main amd64 mysql-server all 8.0.43-0ubuntu0.24.04.2 [9516 B]
+Fetched 29.6 MB in 12s (2550 kB/s)
+Preconfiguring packages ...
+Selecting previously unselected package mysql-common.
+(Reading database ... 111929 files and directories currently installed.)
+Preparing to unpack .../0-mysql-common_5.8+1.1.0build1_all.deb ...
+Unpacking mysql-common (5.8+1.1.0build1) ...
+Selecting previously unselected package mysql-client-core-8.0.
+Preparing to unpack .../1-mysql-client-core-8.0_8.0.43-0ubuntu0.24.04.2_amd64.deb ...
+Unpacking mysql-client-core-8.0 (8.0.43-0ubuntu0.24.04.2) ...
+Selecting previously unselected package mysql-client-8.0.
+Preparing to unpack .../2-mysql-client-8.0_8.0.43-0ubuntu0.24.04.2_amd64.deb ...
+Unpacking mysql-client-8.0 (8.0.43-0ubuntu0.24.04.2) ...
+Selecting previously unselected package libevent-pthreads-2.1-7t64:amd64.
+Preparing to unpack .../3-libevent-pthreads-2.1-7t64_2.1.12-stable-9ubuntu2_amd64.deb ...
+Unpacking libevent-pthreads-2.1-7t64:amd64 (2.1.12-stable-9ubuntu2) ...
+Selecting previously unselected package libmecab2:amd64.
+Preparing to unpack .../4-libmecab2_0.996-14ubuntu4_amd64.deb ...
+Unpacking libmecab2:amd64 (0.996-14ubuntu4) ...
+Selecting previously unselected package libprotobuf-lite32t64:amd64.
+Preparing to unpack .../5-libprotobuf-lite32t64_3.21.12-8.2ubuntu0.2_amd64.deb ...
+Unpacking libprotobuf-lite32t64:amd64 (3.21.12-8.2ubuntu0.2) ...
+Selecting previously unselected package mysql-server-core-8.0.
+Preparing to unpack .../6-mysql-server-core-8.0_8.0.43-0ubuntu0.24.04.2_amd64.deb ...
+Unpacking mysql-server-core-8.0 (8.0.43-0ubuntu0.24.04.2) ...
+Setting up mysql-common (5.8+1.1.0build1) ...
+update-alternatives: using /etc/mysql/my.cnf.fallback to provide /etc/mysql/my.cnf (my.cnf) in auto mode
+Selecting previously unselected package mysql-server-8.0.
+(Reading database ... 112148 files and directories currently installed.)
+Preparing to unpack .../00-mysql-server-8.0_8.0.43-0ubuntu0.24.04.2_amd64.deb ...
+Unpacking mysql-server-8.0 (8.0.43-0ubuntu0.24.04.2) ...
+Selecting previously unselected package libhtml-tagset-perl.
+Preparing to unpack .../01-libhtml-tagset-perl_3.20-6_all.deb ...
+Unpacking libhtml-tagset-perl (3.20-6) ...
+Selecting previously unselected package liburi-perl.
+Preparing to unpack .../02-liburi-perl_5.27-1_all.deb ...
+Unpacking liburi-perl (5.27-1) ...
+Selecting previously unselected package libhtml-parser-perl:amd64.
+Preparing to unpack .../03-libhtml-parser-perl_3.81-1build3_amd64.deb ...
+Unpacking libhtml-parser-perl:amd64 (3.81-1build3) ...
+Selecting previously unselected package libcgi-pm-perl.
+Preparing to unpack .../04-libcgi-pm-perl_4.63-1_all.deb ...
+Unpacking libcgi-pm-perl (4.63-1) ...
+Selecting previously unselected package libfcgi0t64:amd64.
+Preparing to unpack .../05-libfcgi0t64_2.4.2-2.1ubuntu0.24.04.1_amd64.deb ...
+Unpacking libfcgi0t64:amd64 (2.4.2-2.1ubuntu0.24.04.1) ...
+Selecting previously unselected package libfcgi-perl.
+Preparing to unpack .../06-libfcgi-perl_0.82+ds-3build2_amd64.deb ...
+Unpacking libfcgi-perl (0.82+ds-3build2) ...
+Selecting previously unselected package libcgi-fast-perl.
+Preparing to unpack .../07-libcgi-fast-perl_1%3a2.17-1_all.deb ...
+Unpacking libcgi-fast-perl (1:2.17-1) ...
+Selecting previously unselected package libclone-perl:amd64.
+Preparing to unpack .../08-libclone-perl_0.46-1build3_amd64.deb ...
+Unpacking libclone-perl:amd64 (0.46-1build3) ...
+Selecting previously unselected package libencode-locale-perl.
+Preparing to unpack .../09-libencode-locale-perl_1.05-3_all.deb ...
+Unpacking libencode-locale-perl (1.05-3) ...
+Selecting previously unselected package libfcgi-bin.
+Preparing to unpack .../10-libfcgi-bin_2.4.2-2.1ubuntu0.24.04.1_amd64.deb ...
+Unpacking libfcgi-bin (2.4.2-2.1ubuntu0.24.04.1) ...
+Selecting previously unselected package libhtml-template-perl.
+Preparing to unpack .../11-libhtml-template-perl_2.97-2_all.deb ...
+Unpacking libhtml-template-perl (2.97-2) ...
+Selecting previously unselected package libtimedate-perl.
+Preparing to unpack .../12-libtimedate-perl_2.3300-2_all.deb ...
+Unpacking libtimedate-perl (2.3300-2) ...
+Selecting previously unselected package libhttp-date-perl.
+Preparing to unpack .../13-libhttp-date-perl_6.06-1_all.deb ...
+Unpacking libhttp-date-perl (6.06-1) ...
+Selecting previously unselected package libio-html-perl.
+Preparing to unpack .../14-libio-html-perl_1.004-3_all.deb ...
+Unpacking libio-html-perl (1.004-3) ...
+Selecting previously unselected package liblwp-mediatypes-perl.
+Preparing to unpack .../15-liblwp-mediatypes-perl_6.04-2_all.deb ...
+Unpacking liblwp-mediatypes-perl (6.04-2) ...
+Selecting previously unselected package libhttp-message-perl.
+Preparing to unpack .../16-libhttp-message-perl_6.45-1ubuntu1_all.deb ...
+Unpacking libhttp-message-perl (6.45-1ubuntu1) ...
+Selecting previously unselected package mecab-utils.
+Preparing to unpack .../17-mecab-utils_0.996-14ubuntu4_amd64.deb ...
+Unpacking mecab-utils (0.996-14ubuntu4) ...
+Selecting previously unselected package mecab-ipadic.
+Preparing to unpack .../18-mecab-ipadic_2.7.0-20070801+main-3_all.deb ...
+Unpacking mecab-ipadic (2.7.0-20070801+main-3) ...
+Selecting previously unselected package mecab-ipadic-utf8.
+Preparing to unpack .../19-mecab-ipadic-utf8_2.7.0-20070801+main-3_all.deb ...
+Unpacking mecab-ipadic-utf8 (2.7.0-20070801+main-3) ...
+Selecting previously unselected package mysql-server.
+Preparing to unpack .../20-mysql-server_8.0.43-0ubuntu0.24.04.2_all.deb ...
+Unpacking mysql-server (8.0.43-0ubuntu0.24.04.2) ...
+Setting up libprotobuf-lite32t64:amd64 (3.21.12-8.2ubuntu0.2) ...
+Setting up libmecab2:amd64 (0.996-14ubuntu4) ...
+Setting up mysql-client-core-8.0 (8.0.43-0ubuntu0.24.04.2) ...
+Setting up libclone-perl:amd64 (0.46-1build3) ...
+Setting up libevent-pthreads-2.1-7t64:amd64 (2.1.12-stable-9ubuntu2) ...
+Setting up libfcgi0t64:amd64 (2.4.2-2.1ubuntu0.24.04.1) ...
+Setting up libhtml-tagset-perl (3.20-6) ...
+Setting up liblwp-mediatypes-perl (6.04-2) ...
+Setting up libfcgi-bin (2.4.2-2.1ubuntu0.24.04.1) ...
+Setting up libencode-locale-perl (1.05-3) ...
+Setting up mecab-utils (0.996-14ubuntu4) ...
+Setting up libio-html-perl (1.004-3) ...
+Setting up mysql-server-core-8.0 (8.0.43-0ubuntu0.24.04.2) ...
+Setting up libtimedate-perl (2.3300-2) ...
+Setting up mysql-client-8.0 (8.0.43-0ubuntu0.24.04.2) ...
+Setting up libfcgi-perl (0.82+ds-3build2) ...
+Setting up liburi-perl (5.27-1) ...
+Setting up mysql-server-8.0 (8.0.43-0ubuntu0.24.04.2) ...
+update-alternatives: using /etc/mysql/mysql.cnf to provide /etc/mysql/my.cnf (my.cnf) in auto mode
+Renaming removed key_buffer and myisam-recover options (if present)
+mysqld will log errors to /var/log/mysql/error.log
+mysqld is running as pid 21561
+Created symlink /etc/systemd/system/multi-user.target.wants/mysql.service → /usr/lib/systemd/system/mysql.service.
+Setting up libhttp-date-perl (6.06-1) ...
+Setting up mecab-ipadic (2.7.0-20070801+main-3) ...
+Compiling IPA dictionary for Mecab.  This takes long time...
+reading /usr/share/mecab/dic/ipadic/unk.def ... 40
+emitting double-array: 100% |###########################################|
+/usr/share/mecab/dic/ipadic/model.def is not found. skipped.
+reading /usr/share/mecab/dic/ipadic/Conjunction.csv ... 171
+reading /usr/share/mecab/dic/ipadic/Adnominal.csv ... 135
+reading /usr/share/mecab/dic/ipadic/Postp-col.csv ... 91
+reading /usr/share/mecab/dic/ipadic/Noun.org.csv ... 16668
+reading /usr/share/mecab/dic/ipadic/Noun.place.csv ... 72999
+reading /usr/share/mecab/dic/ipadic/Noun.verbal.csv ... 12146
+reading /usr/share/mecab/dic/ipadic/Adj.csv ... 27210
+reading /usr/share/mecab/dic/ipadic/Noun.csv ... 60477
+reading /usr/share/mecab/dic/ipadic/Noun.others.csv ... 151
+reading /usr/share/mecab/dic/ipadic/Noun.adjv.csv ... 3328
+reading /usr/share/mecab/dic/ipadic/Prefix.csv ... 221
+reading /usr/share/mecab/dic/ipadic/Noun.proper.csv ... 27328
+reading /usr/share/mecab/dic/ipadic/Adverb.csv ... 3032
+reading /usr/share/mecab/dic/ipadic/Noun.name.csv ... 34202
+reading /usr/share/mecab/dic/ipadic/Suffix.csv ... 1393
+reading /usr/share/mecab/dic/ipadic/Verb.csv ... 130750
+reading /usr/share/mecab/dic/ipadic/Interjection.csv ... 252
+reading /usr/share/mecab/dic/ipadic/Filler.csv ... 19
+reading /usr/share/mecab/dic/ipadic/Noun.demonst.csv ... 120
+reading /usr/share/mecab/dic/ipadic/Noun.nai.csv ... 42
+reading /usr/share/mecab/dic/ipadic/Noun.adverbal.csv ... 795
+reading /usr/share/mecab/dic/ipadic/Symbol.csv ... 208
+reading /usr/share/mecab/dic/ipadic/Noun.number.csv ... 42
+reading /usr/share/mecab/dic/ipadic/Postp.csv ... 146
+reading /usr/share/mecab/dic/ipadic/Others.csv ... 2
+reading /usr/share/mecab/dic/ipadic/Auxil.csv ... 199
+emitting double-array: 100% |###########################################|
+reading /usr/share/mecab/dic/ipadic/matrix.def ... 1316x1316
+emitting matrix      : 100% |###########################################|
+
+done!
+update-alternatives: using /var/lib/mecab/dic/ipadic to provide /var/lib/mecab/dic/debian (mecab-dictionary) in auto mode
+Setting up mecab-ipadic-utf8 (2.7.0-20070801+main-3) ...
+Compiling IPA dictionary for Mecab.  This takes long time...
+reading /usr/share/mecab/dic/ipadic/unk.def ... 40
+emitting double-array: 100% |###########################################|
+/usr/share/mecab/dic/ipadic/model.def is not found. skipped.
+reading /usr/share/mecab/dic/ipadic/Conjunction.csv ... 171
+reading /usr/share/mecab/dic/ipadic/Adnominal.csv ... 135
+reading /usr/share/mecab/dic/ipadic/Postp-col.csv ... 91
+reading /usr/share/mecab/dic/ipadic/Noun.org.csv ... 16668
+reading /usr/share/mecab/dic/ipadic/Noun.place.csv ... 72999
+reading /usr/share/mecab/dic/ipadic/Noun.verbal.csv ... 12146
+reading /usr/share/mecab/dic/ipadic/Adj.csv ... 27210
+reading /usr/share/mecab/dic/ipadic/Noun.csv ... 60477
+reading /usr/share/mecab/dic/ipadic/Noun.others.csv ... 151
+reading /usr/share/mecab/dic/ipadic/Noun.adjv.csv ... 3328
+reading /usr/share/mecab/dic/ipadic/Prefix.csv ... 221
+reading /usr/share/mecab/dic/ipadic/Noun.proper.csv ... 27328
+reading /usr/share/mecab/dic/ipadic/Adverb.csv ... 3032
+reading /usr/share/mecab/dic/ipadic/Noun.name.csv ... 34202
+reading /usr/share/mecab/dic/ipadic/Suffix.csv ... 1393
+reading /usr/share/mecab/dic/ipadic/Verb.csv ... 130750
+reading /usr/share/mecab/dic/ipadic/Interjection.csv ... 252
+reading /usr/share/mecab/dic/ipadic/Filler.csv ... 19
+reading /usr/share/mecab/dic/ipadic/Noun.demonst.csv ... 120
+reading /usr/share/mecab/dic/ipadic/Noun.nai.csv ... 42
+reading /usr/share/mecab/dic/ipadic/Noun.adverbal.csv ... 795
+reading /usr/share/mecab/dic/ipadic/Symbol.csv ... 208
+reading /usr/share/mecab/dic/ipadic/Noun.number.csv ... 42
+reading /usr/share/mecab/dic/ipadic/Postp.csv ... 146
+reading /usr/share/mecab/dic/ipadic/Others.csv ... 2
+reading /usr/share/mecab/dic/ipadic/Auxil.csv ... 199
+emitting double-array: 100% |###########################################|
+reading /usr/share/mecab/dic/ipadic/matrix.def ... 1316x1316
+emitting matrix      : 100% |###########################################|
+
+done!
+update-alternatives: using /var/lib/mecab/dic/ipadic-utf8 to provide /var/lib/mecab/dic/debian (mecab-dictionary) in auto mode
+Setting up libhtml-parser-perl:amd64 (3.81-1build3) ...
+Setting up libhttp-message-perl (6.45-1ubuntu1) ...
+Setting up mysql-server (8.0.43-0ubuntu0.24.04.2) ...
+Setting up libcgi-pm-perl (4.63-1) ...
+Setting up libhtml-template-perl (2.97-2) ...
+Setting up libcgi-fast-perl (1:2.17-1) ...
+Processing triggers for man-db (2.12.0-4build2) ...
+Processing triggers for libc-bin (2.39-0ubuntu8.5) ...
+Scanning processes...
+Scanning candidates...
+Scanning linux images...
+
+Running kernel seems to be up-to-date.
+
+Restarting services...
+
+Service restarts being deferred:
+ systemctl restart unattended-upgrades.service
+
+No containers need to be restarted.
+
+No user sessions are running outdated binaries.
+
+No VM guests are running outdated hypervisor (qemu) binaries on this host.
+root@srv1011939:~# apt install mysql-client-core-8.0 -y
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+mysql-client-core-8.0 is already the newest version (8.0.43-0ubuntu0.24.04.2).
+mysql-client-core-8.0 set to manually installed.
+0 upgraded, 0 newly installed, 0 to remove and 20 not upgraded.
+root@srv1011939:~# systemctl start mysql
+root@srv1011939:~# systemctl enable mysql
+Synchronizing state of mysql.service with SysV service script with /usr/lib/systemd/systemd-sysv-install.
+Executing: /usr/lib/systemd/systemd-sysv-install enable mysql
+root@srv1011939:~# systemctl status mysql
+● mysql.service - MySQL Community Server
+     Loaded: loaded (/usr/lib/systemd/system/mysql.service; enabled; preset: enabled)
+     Active: active (running) since Fri 2025-09-19 01:56:55 UTC; 36s ago
+   Main PID: 21758 (mysqld)
+     Status: "Server is operational"
+      Tasks: 38 (limit: 4654)
+     Memory: 361.3M (peak: 377.8M)
+        CPU: 779ms
+     CGroup: /system.slice/mysql.service
+             └─21758 /usr/sbin/mysqld
+
+Sep 19 01:56:54 srv1011939 systemd[1]: Starting mysql.service - MySQL Community Server...
+Sep 19 01:56:55 srv1011939 systemd[1]: Started mysql.service - MySQL Community Server.
+root@srv1011939:~# mysql_secure_installation
+
+Securing the MySQL server deployment.
+
+Connecting to MySQL using a blank password.
+
+VALIDATE PASSWORD COMPONENT can be used to test passwords
+and improve security. It checks the strength of password
+and allows the users to set only those passwords which are
+secure enough. Would you like to setup VALIDATE PASSWORD component?
+
+Press y|Y for Yes, any other key for No: y
+
+There are three levels of password validation policy:
+
+LOW    Length >= 8
+MEDIUM Length >= 8, numeric, mixed case, and special characters
+STRONG Length >= 8, numeric, mixed case, special characters and dictionary                  file
+
+Please enter 0 = LOW, 1 = MEDIUM and 2 = STRONG: 0
+
+Skipping password set for root as authentication with auth_socket is used by default.
+If you would like to use password authentication instead, this can be done with the "ALTER_USER" command.
+See https://dev.mysql.com/doc/refman/8.0/en/alter-user.html#alter-user-password-management for more information.
+
+By default, a MySQL installation has an anonymous user,
+allowing anyone to log into MySQL without having to have
+a user account created for them. This is intended only for
+testing, and to make the installation go a bit smoother.
+You should remove them before moving into a production
+environment.
+
+Remove anonymous users? (Press y|Y for Yes, any other key for No) : y
+Success.
+
+
+Normally, root should only be allowed to connect from
+'localhost'. This ensures that someone cannot guess at
+the root password from the network.
+
+Disallow root login remotely? (Press y|Y for Yes, any other key for No) : y
+Success.
+
+By default, MySQL comes with a database named 'test' that
+anyone can access. This is also intended only for testing,
+and should be removed before moving into a production
+environment.
+
+
+Remove test database and access to it? (Press y|Y for Yes, any other key for No) : y
+ - Dropping test database...
+Success.
+
+ - Removing privileges on test database...
+Success.
+
+Reloading the privilege tables will ensure that all changes
+made so far will take effect immediately.
+
+Reload privilege tables now? (Press y|Y for Yes, any other key for No) : y
+Success.
+
+All done!
+root@srv1011939:~# mysql -u root -p -e "CREATE DATABASE Tugas01;"
+Enter password:
+root@srv1011939:~# mysql -u root -p -e "CREATE DATABASE Tugas01;"
+Enter password:
+ERROR 1007 (HY000) at line 1: Can't create database 'Tugas01'; database exists
+root@srv1011939:~# mysql -u root -p -e "CREATE DATABASE Tugas01;"
+Enter password:
+ERROR 1007 (HY000) at line 1: Can't create database 'Tugas01'; database exists
+root@srv1011939:~# mysql -u root -p
+Enter password:
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 13
+Server version: 8.0.43-0ubuntu0.24.04.2 (Ubuntu)
+
+Copyright (c) 2000, 2025, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> SOURCE /root/Tugas01.sql;
+Query OK, 0 rows affected, 1 warning (0.00 sec)
+
+Query OK, 1 row affected (0.00 sec)
+
+Database changed
+Query OK, 0 rows affected (0.01 sec)
+
+Query OK, 0 rows affected (0.01 sec)
+
+Query OK, 0 rows affected (0.01 sec)
+
+Query OK, 0 rows affected (0.01 sec)
+
+Query OK, 0 rows affected (0.02 sec)
+
+Query OK, 0 rows affected (0.01 sec)
+
+Query OK, 0 rows affected (0.01 sec)
+
+Query OK, 0 rows affected (0.01 sec)
+
+Query OK, 0 rows affected (0.01 sec)
+
+Query OK, 2 rows affected (0.01 sec)
+Records: 2  Duplicates: 0  Warnings: 0
+
+Query OK, 3 rows affected (0.00 sec)
+Records: 3  Duplicates: 0  Warnings: 0
+
+Query OK, 3 rows affected (0.01 sec)
+Records: 3  Duplicates: 0  Warnings: 0
+
+Query OK, 7 rows affected (0.00 sec)
+Records: 7  Duplicates: 0  Warnings: 0
+
+Query OK, 7 rows affected (0.00 sec)
+Records: 7  Duplicates: 0  Warnings: 0
+
+Query OK, 8 rows affected (0.00 sec)
+Records: 8  Duplicates: 0  Warnings: 0
+
+Query OK, 8 rows affected (0.00 sec)
+Records: 8  Duplicates: 0  Warnings: 0
+
+Query OK, 4 rows affected (0.01 sec)
+Records: 4  Duplicates: 0  Warnings: 0
+
+Query OK, 14 rows affected (0.00 sec)
+Records: 14  Duplicates: 0  Warnings: 0
+
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '-
+
+-
+
+DELIMITER $$
+DROP PROCEDURE IF EXISTS sp_insert_pelanggan $$
+CREATE PROCED' at line 1
+ERROR 1054 (42S22): Unknown column 'p_kode' in 'field list'
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'END $$
+DELIMITER' at line 1
+Query OK, 0 rows affected, 1 warning (0.00 sec)
+
+Query OK, 0 rows affected (0.00 sec)
+
+Query OK, 0 rows affected, 1 warning (0.00 sec)
+
+Query OK, 0 rows affected (0.01 sec)
+
+Query OK, 0 rows affected, 1 warning (0.00 sec)
+
+Query OK, 0 rows affected (0.00 sec)
+
+Query OK, 0 rows affected, 1 warning (0.00 sec)
+
+Query OK, 0 rows affected (0.00 sec)
+
+Query OK, 0 rows affected, 1 warning (0.00 sec)
+
+Query OK, 0 rows affected (0.00 sec)
+
+Query OK, 0 rows affected, 1 warning (0.00 sec)
+
+Query OK, 0 rows affected (0.01 sec)
+
+Query OK, 0 rows affected, 1 warning (0.00 sec)
+
+Query OK, 0 rows affected (0.00 sec)
+
+Query OK, 0 rows affected, 1 warning (0.00 sec)
+
+Query OK, 0 rows affected (0.00 sec)
+
+Query OK, 0 rows affected (0.00 sec)
+
+Query OK, 0 rows affected (0.01 sec)
+
+Query OK, 0 rows affected (0.00 sec)
+
+Query OK, 0 rows affected, 1 warning (0.00 sec)
+
+Query OK, 0 rows affected (0.00 sec)
+
+Query OK, 0 rows affected, 1 warning (0.00 sec)
+
+Query OK, 0 rows affected (0.00 sec)
+
++----------------+----------------+---------------+-------------+----------+
+| kode_pelanggan | nama_pelanggan | jenis_kelamin | alamat      | kota     |
++----------------+----------------+---------------+-------------+----------+
+| PLG01          | Mohamad        | Pria          | Priok       | Jakarta  |
+| PLG02          | Naufal         | Pria          | Cilincing   | Jakarta  |
+| PLG03          | Atila          | Pria          | Bojongsoang | Bandung  |
+| PLG06          | Tsaniy         | Pria          | Darmo       | Surabaya |
+| PLG04          | Tsalsa         | Wanita        | Buah Batu   | Bandung  |
+| PLG05          | Damay          | Wanita        | Gubeng      | Surabaya |
+| PLG07          | Nabila         | Wanita        | Lebak Bulus | Jakarta  |
++----------------+----------------+---------------+-------------+----------+
+7 rows in set (0.00 sec)
+
++-------------+-------------+---------+------+-------+
+| kode_produk | nama_produk | satuan  | stok | harga |
++-------------+-------------+---------+------+-------+
+| P003        | Kecap       | Botol   |    8 |  4700 |
+| P004        | Saos Tomat  | Botol   |    8 |  5800 |
+| P008        | Saos Sambal | Botol   |    5 |  7300 |
+| P001        | Indomie     | Bungkus |   10 |  3000 |
+| P005        | Bihun       | Bungkus |    5 |  3500 |
+| P002        | Roti        | Pak     |    3 | 18000 |
+| P006        | Sikat Gigi  | Pak     |    5 | 15000 |
+| P007        | Pasta Gigi  | Pak     |    7 | 10000 |
++-------------+-------------+---------+------+-------+
+8 rows in set (0.00 sec)
+
++----------------+----------------+---------------+-------------+----------+--------------+---------+-------------+-------------+--------+---------+-------+-------+
+| kode_pelanggan | nama_pelanggan | jenis_kelamin | alamat      | kota     | tanggal_jual | no_jual | kode_produk | nama_produk | jumlah | satuan  | harga | total |
++----------------+----------------+---------------+-------------+----------+--------------+---------+-------------+-------------+--------+---------+-------+-------+
+| PLG02          | Naufal         | Pria          | Cilincing   | Jakarta  | 09/09/2025   | J003    | P001        | Indomie     |      5 | Bungkus |  3000 | 15000 |
+| PLG02          | Naufal         | Pria          | Cilincing   | Jakarta  | 09/09/2025   | J003    | P003        | Kecap       |      1 | Botol   |  4700 |  4700 |
+| PLG02          | Naufal         | Pria          | Cilincing   | Jakarta  | 09/09/2025   | J003    | P004        | Saos Tomat  |      2 | Botol   |  5800 | 11600 |
+| PLG02          | Naufal         | Pria          | Cilincing   | Jakarta  | 09/09/2025   | J003    | P008        | Saos Sambal |      2 | Botol   |  7300 | 14600 |
+| PLG03          | Atila          | Pria          | Bojongsoang | Bandung  | 08/09/2025   | J001    | P001        | Indomie     |      2 | Bungkus |  3000 |  6000 |
+| PLG03          | Atila          | Pria          | Bojongsoang | Bandung  | 08/09/2025   | J001    | P003        | Kecap       |      1 | Botol   |  4700 |  4700 |
+| PLG03          | Atila          | Pria          | Bojongsoang | Bandung  | 08/09/2025   | J001    | P004        | Saos Tomat  |      1 | Botol   |  5800 |  5800 |
+| PLG05          | Damay          | Wanita        | Gubeng      | Surabaya | 10/09/2025   | J004    | P002        | Roti        |      3 | Pak     | 18000 | 54000 |
+| PLG05          | Damay          | Wanita        | Gubeng      | Surabaya | 10/09/2025   | J004    | P004        | Saos Tomat  |      2 | Botol   |  5800 | 11600 |
+| PLG05          | Damay          | Wanita        | Gubeng      | Surabaya | 10/09/2025   | J004    | P006        | Sikat Gigi  |      2 | Pak     | 15000 | 30000 |
+| PLG05          | Damay          | Wanita        | Gubeng      | Surabaya | 10/09/2025   | J004    | P007        | Pasta Gigi  |      1 | Pak     | 10000 | 10000 |
+| PLG05          | Damay          | Wanita        | Gubeng      | Surabaya | 10/09/2025   | J004    | P008        | Saos Sambal |      2 | Botol   |  7300 | 14600 |
+| PLG07          | Nabila         | Wanita        | Lebak Bulus | Jakarta  | 08/09/2025   | J002    | P006        | Sikat Gigi  |      3 | Pak     | 15000 | 45000 |
+| PLG07          | Nabila         | Wanita        | Lebak Bulus | Jakarta  | 08/09/2025   | J002    | P007        | Pasta Gigi  |      1 | Pak     | 10000 | 10000 |
++----------------+----------------+---------------+-------------+----------+--------------+---------+-------------+-------------+--------+---------+-------+-------+
+14 rows in set (0.00 sec)
+
++------------+-----------------+
+| tanggal    | total_penjualan |
++------------+-----------------+
+| 08/09/2025 |           71500 |
+| 09/09/2025 |           45900 |
+| 10/09/2025 |          120200 |
++------------+-----------------+
+3 rows in set (0.01 sec)
+
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> SHOW TABLES;
++----------------------+
+| Tables_in_warung     |
++----------------------+
+| alamat_pelanggan     |
+| detail_transaksi     |
+| harga_produk         |
+| kelamin              |
+| kota                 |
+| pelanggan            |
+| produk               |
+| satuan               |
+| transaksi            |
+| vw_pelanggan_lengkap |
+| vw_penjualan_lengkap |
+| vw_produk_lengkap    |
++----------------------+
+12 rows in set (0.01 sec)
+
+mysql> DESC pelanggan;
++----------------+-------------+------+-----+---------+-------+
+| Field          | Type        | Null | Key | Default | Extra |
++----------------+-------------+------+-----+---------+-------+
+| kode_pelanggan | char(5)     | NO   | PRI | NULL    |       |
+| nama           | varchar(50) | NO   |     | NULL    |       |
+| id_kelamin     | int         | YES  | MUL | NULL    |       |
++----------------+-------------+------+-----+---------+-------+
+3 rows in set (0.00 sec)
+
+mysql> DESC produk;
++-------------+-------------+------+-----+---------+-------+
+| Field       | Type        | Null | Key | Default | Extra |
++-------------+-------------+------+-----+---------+-------+
+| kode_produk | char(5)     | NO   | PRI | NULL    |       |
+| nama        | varchar(50) | NO   |     | NULL    |       |
+| id_satuan   | int         | YES  | MUL | NULL    |       |
+| stok        | int         | NO   |     | NULL    |       |
++-------------+-------------+------+-----+---------+-------+
+4 rows in set (0.00 sec)
+
+mysql> DESC penjualan;
+ERROR 1146 (42S02): Table 'warung.penjualan' doesn't exist
+mysql> mysqldump -u root -p Tugas01 > /root/Tugas01_backup.sql
+    ->
