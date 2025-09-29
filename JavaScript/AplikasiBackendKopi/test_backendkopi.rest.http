@@ -1,0 +1,81 @@
+//Menambahkan data pembeli baru ke dalam database.
+POST http://localhost:3000/api/pembeli
+Content-Type: application/json
+
+{
+  "nama_pembeli": "Ahmad Wijaya",
+  "nomor_telepon": "081234567890",
+  "email": "ahmad.wijaya@email.com"
+}
+
+### Mengambil daftar semua data pembeli yang terdaftar.
+GET http://localhost:3000/api/pembeli
+Content-Type: application/json
+
+### Mengambil detail data seorang pembeli berdasarkan ID uniknya.
+GET http://localhost:3000/api/pembeli/:id
+Content-Type: application/json
+
+### Mengubah atau memperbarui data seorang pembeli yang sudah ada.
+PUT http://localhost:3000/api/pembeli/:id
+Content-Type: application/json
+
+### Menghapus data seorang pembeli dari database.
+DELETE http://localhost:3000/api/pembeli/:id
+Content-Type: application/json
+
+### Menambahkan data kasir baru ke dalam database.
+POST http://localhost:3000/api/kasir
+Content-Type: application/json
+
+{
+  "nama_kasir": "Siti Rahayu",
+  "nomor_pegawai": "KSR2024001"
+}
+
+### Mengambil daftar semua data kasir yang terdaftar.
+GET http://localhost:3000/api/kasir
+Content-Type: application/json
+
+### Mengambil detail data seorang kasir berdasarkan ID uniknya.
+GET http://localhost:3000/api/kasir/id
+Content-Type: application/json
+
+### Mengubah atau memperbarui data seorang kasir yang sudah ada.
+PUT http://localhost:3000/api/kasir/id
+Content-Type: application/json
+
+### Menghapus data seorang kasir dari database.
+DELETE http://localhost:3000/api/kasir/id
+Content-Type: application/json
+
+### Mencatat transaksi penjualan baru, menghubungkan pembeli dan kasir.
+POST http://localhost:3000/api/transaksi
+Content-Type: application/json
+
+{
+  "pembeli_id": 1,
+  "kasir_id": 1,
+  "total_harga": 75000.50,
+  "metode_pembayaran": "Tunai"
+}
+
+### Mengambil riwayat semua transaksi beserta detail pembeli dan kasir.
+GET http://localhost:3000/api/transaksi
+Content-Type: application/json
+
+### Mengambil detail satu transaksi spesifik berdasarkan ID-nya.
+GET http://localhost:3000/api/transaksi/id
+Content-Type: application/json
+
+### Mengubah data sebuah transaksi (misalnya, total harga atau status).
+PUT http://localhost:3000/api/transaksi/id
+Content-Type: application/json
+
+### Menghapus data sebuah transaksi dari database.
+DELETE http://localhost:3000/api/transaksi/id
+Content-Type: application/json
+
+### Menghasilkan laporan agregat penjualan per bulan, termasuk total pendapatan dan jumlah transaksi.
+GET http://localhost:3000/api/laporan/bulanan
+Content-Type: application/json
